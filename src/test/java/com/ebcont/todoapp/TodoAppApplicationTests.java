@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.web.reactive.server.WebTestClient;
 
-@SpringBootTest
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
 class TodoAppApplicationTests {
 
 	@Test
@@ -18,6 +18,6 @@ class TodoAppApplicationTests {
 				.exchange()
 				.expectStatus().isOk()
 //				.expectHeader().valueEquals("Content-Type", "application/json")
-				.expectBody().json("[\"hello world\"]");
+				.expectBody().json("[{\"id\":1,\"task\":\"hello world\"}]");
 	}
 }
