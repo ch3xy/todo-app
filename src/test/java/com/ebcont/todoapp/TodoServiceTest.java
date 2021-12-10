@@ -42,4 +42,15 @@ class TodoServiceTest {
 
         assertThat(todos).containsExactly(todo);
     }
+
+    @Test
+    void test_createTodo() {
+
+        Todo todo = new Todo();
+        given(repository.save(todo)).willReturn(todo);
+
+        Todo result = todoService.createTodo(todo);
+
+        assertThat(result).isEqualTo(todo);
+    }
 }

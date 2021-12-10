@@ -1,11 +1,12 @@
 package com.ebcont.todoapp;
 
-import java.util.List;
-import java.util.stream.Collectors;
-
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 
 @RestController
 public class TodoController {
@@ -18,7 +19,11 @@ public class TodoController {
 
     @GetMapping("/api/todos")
     public ResponseEntity<List<Todo>> getTodos() {
-        List<Todo> todos = todoService.getTodos();
-        return ResponseEntity.ok(todos);
+        return ResponseEntity.ok(todoService.getTodos());
+    }
+
+    @PostMapping("/api/todos")
+    public ResponseEntity<Todo> createTodo(@RequestBody Todo todo) {
+        return ResponseEntity.ok(todoService.createTodo(todo));
     }
 }
