@@ -27,3 +27,7 @@ hs_err_pid*
 /.idea/todo-app.iml
 /.idea/vcs.xml
 /.idea/
+/.mvn/
+.mvn
+/mvnw
+/mvnw.cmd
